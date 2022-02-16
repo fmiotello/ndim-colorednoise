@@ -21,7 +21,7 @@ def generate_noise(size, beta):
     freqs[origin] += 1e-8      # DC component
     filter = 1/np.power(freqs, beta)
 
-    colored_fft = white_fft * filter
+    colored_fft = white_noise_fft * filter
     colored_noise = np.fft.ifftn(colored_fft)
 
     return np.abs(colored_noise)
